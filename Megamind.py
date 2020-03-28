@@ -1,6 +1,6 @@
 import numpy as np
 
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 from Game import Game, State
 from MTTTBot import MTTTBot
@@ -12,7 +12,7 @@ class Megamind(MTTTBot):
         super().__init__(game)
 
         self.mind: Dict[State, np.ndarray] = {}
-        self.decisions: Dict[State, tuple[int, int, int, int]] = List[]
+        self.decisions: Dict[State, Tuple[int, int, int, int]] = List[]
 
     def play(self):
         if self.game.game_over():
