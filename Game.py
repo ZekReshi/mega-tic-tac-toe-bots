@@ -5,12 +5,14 @@ import numpy as np
 
 class State:
 
-    def __init__(self, board: np.ndarray = None, cell: Tuple[int, int] = None):
+    def __init__(self,
+                 board: np.ndarray = None,
+                 cell: Tuple[int, int] = None) -> None:
         self.board = board if board is not None else np.full((3, 3, 3, 3), 0)
         self.cell = cell
         self.turn: bool = self.board.sum() == 0
 
-    def print(self):
+    def print(self) -> None:
         output: List[str] = []
         for i_index, i in enumerate(self.board):
             for j_index, j in enumerate(i):
@@ -31,7 +33,7 @@ class State:
 
 class Game:
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.state = State()
 
     def play(self, position: Tuple[int, int, int, int]) -> bool:
