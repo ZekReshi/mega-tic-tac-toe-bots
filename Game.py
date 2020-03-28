@@ -94,14 +94,14 @@ if __name__ == '__main__':
     game = Game()
     while True:
         game.print()
-        position = input()
-        if len(position) != 4:
+        position_str = input()
+        if len(position_str) != 4:
             continue
         try:
-            int(position)
+            int(position_str)
         except ValueError:
             continue
-        game.play((int(position[0]), int(position[1]), int(position[2]), int(position[3])))
+        game.play((int(position_str[0]), int(position_str[1]), int(position_str[2]), int(position_str[3])))
         if game.game_over():
             game.print()
             break
