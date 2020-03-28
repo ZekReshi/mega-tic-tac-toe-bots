@@ -12,7 +12,7 @@ class Megamind(MTTTBot):
         super().__init__(game)
 
         self.mind: Dict[State, np.ndarray] = {}
-        self.decisions: Dict[State, Tuple[int, int, int, int]] = []
+        self.decisions: Dict[State, Tuple[int, int, int, int]] = {}
 
     def play(self):
         if self.game.game_over():
