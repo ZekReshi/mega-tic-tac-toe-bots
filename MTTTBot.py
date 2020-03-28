@@ -1,15 +1,18 @@
 from abc import ABC, abstractmethod
-from typing import Tuple
 
-from Game import State
+from Game import Game
 
 
 class MTTTBot(ABC):
 
-    @abstractmethod
-    def __init__(self) -> None:
+    def __init__(self, game: Game) -> None:
+        self.game = game
         pass
 
     @abstractmethod
-    def play(self, state: State) -> Tuple[int, int, int, int]:
+    def play(self):
+        pass
+
+    @abstractmethod
+    def game_over(self, won: bool) -> None:
         pass
