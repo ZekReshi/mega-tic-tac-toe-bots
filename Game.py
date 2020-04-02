@@ -35,6 +35,7 @@ class Game:
 
     def __init__(self) -> None:
         self.state = State()
+        self.history = List[State]
 
     def play(self, position: Tuple[int, int, int, int]) -> bool:
         for coordinate in position:
@@ -45,6 +46,7 @@ class Game:
         self.state.board[position] = 1 if self.state.turn else -1
         self.state.cell = None if self.cell_over(self.state.board[position[2:]]) else position[2:]
         self.state.turn = not self.state.turn
+        self.history.add(self.state)
         return True
 
     def cell_over(self, cell: np.ndarray) -> bool:
